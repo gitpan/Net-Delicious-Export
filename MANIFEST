@@ -1,5 +1,6 @@
 Changes
 lib/Net/Delicious/Export.pm
+lib/Net/Delicious/Export/Post.pm
 Makefile.PL
 MANIFEST
 t/01-load.t

@@ -5,5 +5,6 @@ WriteMakefile(NAME=>"Net::Delicious::Export",
 	       ABSTRACT => 'Base class for exporting del.icio.us thingies') : (),
 	      VERSION_FROM => "lib/Net/Delicious/Export.pm",
 	      'PREREQ_PM'    => {"XML::SAX"   => '0.12',
+				 "MD5"        => 0,
 				 "Test::More" => 0,},
 	     );
