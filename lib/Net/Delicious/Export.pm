@@ -3,7 +3,7 @@ use strict;
 package Net::Delicious::Export;
 use base qw (XML::SAX::Base);
 
-# $Id: Export.pm,v 1.3 2004/02/12 13:44:46 asc Exp $
+# $Id: Export.pm,v 1.4 2005/09/29 13:22:57 asc Exp $
 
 =head1 NAME
 
@@ -21,7 +21,7 @@ This package subclasses I<XML::SAX::Base>.
 
 =cut
 
-$Net::Delicious::Export::VERSION = '1.1';
+$Net::Delicious::Export::VERSION = '1.2';
 
 =head1 PACKAGE METHODS
 
@@ -43,11 +43,11 @@ sub new {
 
 =head1 VERSION
 
-1.1
+1.2
 
 =head1 DATE
 
-$Date: 2004/02/12 13:44:46 $
+$Date: 2005/09/29 13:22:57 $
 
 =head1 AUTHOR
 

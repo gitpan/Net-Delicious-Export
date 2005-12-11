@@ -3,7 +3,7 @@ use strict;
 package Net::Delicious::Export::Post;
 use base qw (Exporter);
 
-# $Id: Post.pm,v 1.2 2004/02/12 13:44:46 asc Exp $
+# $Id: Post.pm,v 1.6 2005/12/11 19:40:53 asc Exp $
 
 =head1 NAME
 
@@ -27,7 +27,7 @@ Shared function for exporting del.icio.us posts.
 
 use vars qw ($VERSION @EXPORT_OK);
 
-$VERSION = '1.0';
+$VERSION = '1.1';
 
 @EXPORT_OK = qw (group_by_tag
 		 mk_bookmarkid);
@@ -86,12 +86,9 @@ sub group_by_tag {
 	# Create a list of tags
 
 	my $tag = $bm->tag() || "unsorted";
-	$tag =~ s/\s+//;
+	$tag =~ s/\s{2,*}/ /g;
 
 	my @tags = sort $sort split(/[\s,]/,$tag);
-
-	# use Data::Denter;
-	# print STDERR "[$tag] ".Indent(\@tags);
 
 	# Pull the first tag off the list
 	# and use it as the actual bookmark
@@ -131,7 +128,7 @@ sub _addtag {
 
     # print STDERR "[add tag] '$tag' '$bm'\n";
 
-    my @tree  = grep { /^\w/ } split("/",$tag);
+    my @tree  = ($tag =~ m!/!) ? grep { /^\w/ } split("/",$tag) : ($tag);
     my $count = scalar(@tree);
 
     if ($count == 1) {
@@ -191,11 +188,11 @@ sub bookmarkid {
 
 =head1 VERSION
 
-1.0
+1.1
 
 =head1 DATE
 
-$Date: 2004/02/12 13:44:46 $
+$Date: 2005/12/11 19:40:53 $
 
 =head1 AUTHOR
 
